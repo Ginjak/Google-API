@@ -11,11 +11,9 @@ dist
 dist-ssr
 *.local
 
-# Ignore all .env files by default
+# Ignore all .env files
 .env*
-# Include .env files
-!.env
-!.env.*  # To include other .env.* files like .env.production, .env.development, etc.
+# No inclusion rules below, so all .env files are ignored.
 
 # Editor directories and files
 .vscode/*

@@ -12,7 +12,6 @@ import { Toaster } from "react-hot-toast";
 import { FilterProvider } from "./contexts/FilterContext";
 import Results from "./components/Results";
 import Form from "./components/Form";
-import Test from "./components/test";
 import SettingsForm from "./components/Filter/SettingsForm";
 
 const queryClient = new QueryClient({
@@ -45,7 +44,7 @@ function App() {
                 <Route path="test" element={<Form />} />
                 <Route path="results" element={<Results />} />
                 <Route path="dashboard" element={<SettingsForm />} />
-                <Route path="settings" element={<Test />} />
+                <Route path="settings" element={<SettingsForm />} />
                 {/* <Route path="settings" element={<AddPlaceForm />} /> */}
               </Route>
             </Routes>
