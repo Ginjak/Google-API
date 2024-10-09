@@ -8,7 +8,6 @@ import {
   handleSelectChange,
   handleAddStatus,
   handleDateChange,
-  handleDateChangeReminder,
 } from "../../utils/settingsHelpers";
 import LargeSpinner from "../LargeSpinner";
 import SettingsInput from "./SettingsInput";
@@ -39,18 +38,6 @@ export default function SettingsForm() {
     queryKey: ["settings"],
     queryFn: getSettings,
   });
-
-  // const {
-  //   isPending: isPlacesLoading,
-  //   data: places = [],
-  //   error: placesError,
-  // } = usePlaces();
-
-  // const {
-  //   isPending: isSettingsLoading,
-  //   data: settings,
-  //   error: settingsError,
-  // } = useSettings();
 
   const [settingsDetails, setSettingsDetails] = useState({});
 
@@ -94,23 +81,10 @@ export default function SettingsForm() {
       setNameAddedItems(JSON.parse(settings[0].name));
       setCityAddedItems(JSON.parse(settings[0].city));
       setInputWebsite(settings[0].website !== "None");
-      setInputWebsite(settings[0].website);
+      setInputWebsiteChecked(settings[0].website !== "None");
       setDateValue(settings[0].last_review);
       setSelectedValues(JSON.parse(settings[0].status));
       setIsDarkMode(JSON.parse(settings[0].dark_mode));
-
-      // Format reminder dates
-      // const formattedReminderDates = JSON.parse(settings[0].reminder).map(
-      //   (date) => {
-      //     const parsedDate = new Date(date);
-      //     return parsedDate.toLocaleDateString("en-US", {
-      //       month: "2-digit",
-      //       day: "2-digit",
-      //       year: "2-digit",
-      //     });
-      //   }
-      // );
-
       setReminderDateAddedItems(JSON.parse(settings[0].reminder));
     }
   }, [settings]);
@@ -128,6 +102,7 @@ export default function SettingsForm() {
   const [cityAddedItems, setCityAddedItems] = useState([]);
 
   const [inputWebsite, setInputWebsite] = useState(false);
+  const [inputWebsiteChecked, setInputWebsiteChecked] = useState(false);
 
   const [dateValue, setDateValue] = useState("");
   const [selectedOption, setSelectedOption] = useState(""); // Track the selected option
@@ -148,6 +123,7 @@ export default function SettingsForm() {
   const handleWebsiteChange = () => {
     const newMode = !inputWebsite;
     setInputWebsite(newMode);
+    setInputWebsiteChecked(newMode);
   };
 
   const handleToggleTheme = () => {
@@ -305,7 +281,7 @@ export default function SettingsForm() {
         <SettingsInput
           labelName={"website"}
           type={"checkbox"}
-          checked={inputWebsite}
+          checked={inputWebsiteChecked}
           onChange={handleWebsiteChange}
         />
         {/* Date Input */}
