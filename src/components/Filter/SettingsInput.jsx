@@ -12,7 +12,7 @@ export default function SettingsInput({
     <div className="flex gap-3 items-center py-2">
       <label
         htmlFor={labelName}
-        className="min-w-20 uppercase font-semibold tracking-wider text-source-greenHover dark:text-green-100"
+        className="min-w-32 uppercase font-semibold tracking-wider text-source-greenHover dark:text-green-100"
       >
         {labelName?.charAt(0).toUpperCase() + labelName.slice(1)}
       </label>
@@ -33,7 +33,7 @@ export default function SettingsInput({
             <input
               id={labelName}
               type={type}
-              className="block w-full rounded-[6px_0_0_6px] border-0 px-3.5 py-2 text-source-green  ring-2 ring-inset ring-source-green placeholder:text-gray-500 focus:ring-inset focus:ring-source-green sm:text-sm focus:outline-none focus:bg-green-50 dark:ring-green-100 dark:focus:ring-green-100"
+              className="block w-full rounded-[6px_0_0_6px] border-0 px-3.5 py-2 text-source-green  ring-2 ring-inset ring-source-green placeholder:text-gray-500 focus:ring-inset focus:ring-source-green sm:text-sm focus:outline-none focus:bg-green-50 dark:ring-green-100 dark:focus:ring-green-100 min-w-[180px]"
               value={value}
               onChange={onChange}
             />

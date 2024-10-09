@@ -11,6 +11,7 @@ module.exports = {
           greenHover: "#20312d",
           darkThemeBg: "#0e241e",
           suggestions: "#7EBDC2",
+          sun: "#FFB400",
         },
       },
       screens: {

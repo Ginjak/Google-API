@@ -314,13 +314,15 @@ export default function SettingsForm() {
           }
         />
         {/* Button to add selected status */}
-        <AddedItemsList
-          items={selectedValues} // Use the updated state array
-          onRemove={(item) =>
-            handleRemoveItem(item, setSelectedValues, selectedValues)
-          }
-          labelName={inputStatus}
-        />
+        <div className="relative">
+          <AddedItemsList
+            items={selectedValues} // Use the updated state array
+            onRemove={(item) =>
+              handleRemoveItem(item, setSelectedValues, selectedValues)
+            }
+            labelName={inputStatus}
+          />
+        </div>
         <SettingsDateInputBtn
           labelName={inputReminder}
           value={reminderDate}
@@ -334,20 +336,29 @@ export default function SettingsForm() {
             )
           }
         />
-        <AddedItemsList
-          items={reminderDateAddedItems}
-          onRemove={(item) =>
-            handleRemoveItem(
-              item,
-              setReminderDateAddedItems,
-              reminderDateAddedItems
-            )
-          }
-          labelName={inputReminder}
-        />
+        <div className="relative">
+          <AddedItemsList
+            items={reminderDateAddedItems}
+            onRemove={(item) =>
+              handleRemoveItem(
+                item,
+                setReminderDateAddedItems,
+                reminderDateAddedItems
+              )
+            }
+            labelName={inputReminder}
+          />
+        </div>
         <ThemeMode checked={isDarkMode} onChange={handleToggleTheme} />
-
-        <Button>Send</Button>
+        <div>
+          <Button
+            buttonClass={
+              "dark:!bg-green-100 dark:!text-source-greenHover dark:hover:!bg-source-greenHover dark:hover:!text-white"
+            }
+          >
+            Save
+          </Button>
+        </div>
       </form>
     </>
   );
