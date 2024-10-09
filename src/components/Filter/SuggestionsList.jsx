@@ -10,7 +10,9 @@ export default function SuggestionsList({ suggestions, onSelect, labelName }) {
 
   return (
     uniqueSuggestions.length > 0 && (
-      <ul className={`${labelName}-suggestions-list`}>
+      <ul
+        className={`${labelName}-suggestions-list absolute bg-source-suggestions text-source-green  rounded-md p-2 inline z-50 min-w-96`}
+      >
         {uniqueSuggestions.map((suggestion) => (
           <li
             key={suggestion.id} // Assuming suggestion has a unique id

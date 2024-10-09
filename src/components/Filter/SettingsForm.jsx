@@ -132,8 +132,10 @@ export default function SettingsForm() {
     localStorage.setItem("dark-mode", newMode);
     if (newMode) {
       document.documentElement.classList.add("dark");
+      document.querySelector("body").classList.add("bg-source-darkThemeBg");
     } else {
       document.documentElement.classList.remove("dark");
+      document.querySelector("body").classList.remove("bg-source-darkThemeBg");
     }
   };
 
@@ -156,7 +158,7 @@ export default function SettingsForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="flex flex-col gap-1">
         {/* Name Input */}
         <SettingsInput
           labelName={inputName}
@@ -181,22 +183,25 @@ export default function SettingsForm() {
             }
           }}
         />
-        <SuggestionsList
-          suggestions={nameSuggestions}
-          onSelect={(name) => {
-            setInputNameValue(name);
-            setNameSuggestions([]);
-          }}
-          labelName={inputName}
-        />
-        <AddedItemsList
-          items={nameAddedItems}
-          onRemove={(item) =>
-            handleRemoveItem(item, setNameAddedItems, nameAddedItems)
-          }
-          labelName={inputName}
-        />
+        <div className="relative">
+          <SuggestionsList
+            suggestions={nameSuggestions}
+            onSelect={(name) => {
+              setInputNameValue(name);
+              setNameSuggestions([]);
+            }}
+            labelName={inputName}
+          />
+          <AddedItemsList
+            items={nameAddedItems}
+            onRemove={(item) =>
+              handleRemoveItem(item, setNameAddedItems, nameAddedItems)
+            }
+            labelName={inputName}
+          />
+        </div>
         {/* Industry Input */}
+
         <SettingsInput
           labelName={inputIndustry}
           type={"text"}
@@ -224,21 +229,23 @@ export default function SettingsForm() {
             }
           }}
         />
-        <SuggestionsList
-          suggestions={industrySuggestions}
-          onSelect={(industry) => {
-            setInputIndustryValue(industry);
-            setIndustrySuggestions([]);
-          }}
-          labelName={inputIndustry}
-        />
-        <AddedItemsList
-          items={industryAddedItems}
-          onRemove={(item) =>
-            handleRemoveItem(item, setIndustryAddedItems, industryAddedItems)
-          }
-          labelName={inputIndustry}
-        />
+        <div className="relative">
+          <SuggestionsList
+            suggestions={industrySuggestions}
+            onSelect={(industry) => {
+              setInputIndustryValue(industry);
+              setIndustrySuggestions([]);
+            }}
+            labelName={inputIndustry}
+          />
+          <AddedItemsList
+            items={industryAddedItems}
+            onRemove={(item) =>
+              handleRemoveItem(item, setIndustryAddedItems, industryAddedItems)
+            }
+            labelName={inputIndustry}
+          />
+        </div>
         {/* City Input */}
         <SettingsInput
           labelName={inputCity}
@@ -263,21 +270,23 @@ export default function SettingsForm() {
             }
           }}
         />
-        <SuggestionsList
-          suggestions={citySuggestions}
-          onSelect={(city) => {
-            setInputCityValue(city);
-            setCitySuggestions([]);
-          }}
-          labelName={inputCity}
-        />
-        <AddedItemsList
-          items={cityAddedItems}
-          onRemove={(item) =>
-            handleRemoveItem(item, setCityAddedItems, cityAddedItems)
-          }
-          labelName={inputCity}
-        />
+        <div className="relative">
+          <SuggestionsList
+            suggestions={citySuggestions}
+            onSelect={(city) => {
+              setInputCityValue(city);
+              setCitySuggestions([]);
+            }}
+            labelName={inputCity}
+          />
+          <AddedItemsList
+            items={cityAddedItems}
+            onRemove={(item) =>
+              handleRemoveItem(item, setCityAddedItems, cityAddedItems)
+            }
+            labelName={inputCity}
+          />
+        </div>
         <SettingsInput
           labelName={"website"}
           type={"checkbox"}

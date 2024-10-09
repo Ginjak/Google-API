@@ -95,12 +95,6 @@ export default function Form({ onClose }) {
 
   return (
     <div className="search">
-      {/* <button
-        className="bg-red-500 text-white p-4"
-        onClick={() => handleAddToDatabase()}
-      >
-        Test
-      </button> */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-3 min-w-80">
